@@ -9,6 +9,7 @@ import UIKit
 
 class FamilyProfileViewController: UIViewController {
 
+    private let storageManager = StorageManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()

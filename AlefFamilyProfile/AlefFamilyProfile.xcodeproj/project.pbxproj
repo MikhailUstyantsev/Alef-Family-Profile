@@ -41,6 +41,9 @@
 		83CC70FD2D6637CC0013F29C /* Resouces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70FC2D6637CC0013F29C /* Resouces.swift */; };
 		83CC71012D663AE90013F29C /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC71002D663AE90013F29C /* UITableView+Ext.swift */; };
 		83CC71032D663B020013F29C /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC71022D663B020013F29C /* UIView+Ext.swift */; };
+		83CC71052D6640490013F29C /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC71042D6640490013F29C /* TitleValueView.swift */; };
+		83CC71092D6640C50013F29C /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC71082D6640C50013F29C /* GFTitleLabel.swift */; };
+		83CC710C2D66447B0013F29C /* ParentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC710B2D66447B0013F29C /* ParentInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +83,9 @@
 		83CC70FC2D6637CC0013F29C /* Resouces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resouces.swift; sourceTree = "<group>"; };
 		83CC71002D663AE90013F29C /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		83CC71022D663B020013F29C /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		83CC71042D6640490013F29C /* TitleValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
+		83CC71082D6640C50013F29C /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
+		83CC710B2D66447B0013F29C /* ParentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,7 @@
 		83CC70CB2D662B720013F29C /* Main Module */ = {
 			isa = PBXGroup;
 			children = (
+				83CC710A2D66442B0013F29C /* Views */,
 				83CC70B22D6627490013F29C /* FamilyProfileViewController.swift */,
 			);
 			path = "Main Module";
@@ -185,7 +192,7 @@
 		83CC70D52D6636DA0013F29C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				83CC70FE2D66391D0013F29C /* Reusable Components */,
+				83CC70FE2D66391D0013F29C /* Custom Components */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -223,11 +230,13 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		83CC70FE2D66391D0013F29C /* Reusable Components */ = {
+		83CC70FE2D66391D0013F29C /* Custom Components */ = {
 			isa = PBXGroup;
 			children = (
+				83CC71072D6640B70013F29C /* Labels */,
+				83CC71062D6640AB0013F29C /* Views */,
 			);
-			path = "Reusable Components";
+			path = "Custom Components";
 			sourceTree = "<group>";
 		};
 		83CC70FF2D663AC40013F29C /* Extentions */ = {
@@ -237,6 +246,30 @@
 				83CC71002D663AE90013F29C /* UITableView+Ext.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		83CC71062D6640AB0013F29C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				83CC71042D6640490013F29C /* TitleValueView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		83CC71072D6640B70013F29C /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				83CC71082D6640C50013F29C /* GFTitleLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		83CC710A2D66442B0013F29C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				83CC710B2D66447B0013F29C /* ParentInfoView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,14 +368,17 @@
 				83CC70D22D6632590013F29C /* ErrorPresenter.swift in Sources */,
 				83CC70B82D6627490013F29C /* AppDelegate.swift in Sources */,
 				83CC71032D663B020013F29C /* UIView+Ext.swift in Sources */,
+				83CC71052D6640490013F29C /* TitleValueView.swift in Sources */,
 				83CC70B92D6627490013F29C /* FamilyProfileViewController.swift in Sources */,
 				83CC71012D663AE90013F29C /* UITableView+Ext.swift in Sources */,
 				83CC70C72D662AD50013F29C /* Child+CoreDataClass.swift in Sources */,
 				83CC70C82D662AD50013F29C /* Child+CoreDataProperties.swift in Sources */,
 				83CC70C92D662AD50013F29C /* Parent+CoreDataClass.swift in Sources */,
 				83CC70CA2D662AD50013F29C /* Parent+CoreDataProperties.swift in Sources */,
+				83CC71092D6640C50013F29C /* GFTitleLabel.swift in Sources */,
 				83CC70BA2D6627490013F29C /* SceneDelegate.swift in Sources */,
 				83CC70FD2D6637CC0013F29C /* Resouces.swift in Sources */,
+				83CC710C2D66447B0013F29C /* ParentInfoView.swift in Sources */,
 				83CC70C12D6629FB0013F29C /* FamilyProfileModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

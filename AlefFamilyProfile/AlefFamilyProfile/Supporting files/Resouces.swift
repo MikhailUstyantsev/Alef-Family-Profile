@@ -9,6 +9,10 @@ import UIKit
 
 enum R {
     
+    enum Constant {
+        static let titleValueViewHeight: CGFloat = 40
+    }
+    
     enum Color {
         static let black = UIColor(named: "black")
         static let lightGrey = UIColor(named: "light-grey")
@@ -19,6 +23,7 @@ enum R {
     
     
     enum String {
+        static let title = "Персональные данные"
         static let name = "Имя"
         static let age = "Возраст"
         static let addChild = "Добавить ребенка"

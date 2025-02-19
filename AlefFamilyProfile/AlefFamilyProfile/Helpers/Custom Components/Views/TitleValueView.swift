@@ -9,14 +9,14 @@ import UIKit
 
 final class TitleValueView: UIView {
     
-    private let titleLabel = FPLabel(textAlignment: .left, fontSize: 14, textColor: R.Color.grey)
-    private let valueLabel = FPLabel(textAlignment: .left, fontSize: 14, textColor: R.Color.black)
+    private let titleLabel = FPLabel(textAlignment: .left, fontSize: 14, textColor: UIColor.systemGray2)
+    private let valueLabel = FPLabel(textAlignment: .left, fontSize: 14, textColor: .label)
     
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.spacing = 6
+        stack.spacing = 0
         stack.distribution = .fillEqually
         
         return stack
@@ -37,12 +37,12 @@ final class TitleValueView: UIView {
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(valueLabel)
         addSubviews(stackView)
-        stackView.pinToSuperviewEdges([.top, .bottom])
+        stackView.pinToSuperviewEdges([.top, .bottom], constant: 4)
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
         ])
-        layer.borderColor = R.Color.lightGrey?.cgColor
+        layer.borderColor = UIColor.systemGray5.cgColor
         layer.borderWidth = 1.0
         layer.cornerRadius = 5.0
     }

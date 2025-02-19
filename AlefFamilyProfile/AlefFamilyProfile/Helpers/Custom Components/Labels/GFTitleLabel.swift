@@ -23,7 +23,7 @@ final class FPLabel: UILabel {
     convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat, textColor: UIColor?) {
         self.init(frame: .zero)
         self.textAlignment = textAlignment
-        self.font = R.Font.helveticaRegular(with: fontSize)
+        self.font = R.Font.montserratMedium(with: fontSize)
         self.textColor = textColor
     }
     

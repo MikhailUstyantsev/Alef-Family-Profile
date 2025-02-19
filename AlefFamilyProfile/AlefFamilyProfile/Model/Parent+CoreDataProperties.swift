@@ -18,6 +18,7 @@ extension Parent {
 
     @NSManaged public var name: String?
     @NSManaged public var age: Int16
+    @NSManaged public var id: UUID?
     @NSManaged public var children: NSSet?
 
 }

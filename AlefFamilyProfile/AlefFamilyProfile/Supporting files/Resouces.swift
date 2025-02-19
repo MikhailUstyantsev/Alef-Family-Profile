@@ -26,6 +26,7 @@ enum R {
         static let title = "Персональные данные"
         static let name = "Имя"
         static let age = "Возраст"
+        static let childrenMax5 = "Дети (макс. 5)"
         static let addChild = "Добавить ребенка"
         static let clear = "Очистить"
         static let delete = "Удалить"

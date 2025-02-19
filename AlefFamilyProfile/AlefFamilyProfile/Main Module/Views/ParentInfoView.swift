@@ -9,7 +9,11 @@ import UIKit
 
 final class ParentInfoView: UIView {
 
-    let parent: Parent
+    var parent: Parent? {
+        didSet {
+            configure()
+        }
+    }
     private let nameView = TitleValueView()
     private let ageView = TitleValueView()
     private let stackView: UIStackView = {
@@ -22,7 +26,7 @@ final class ParentInfoView: UIView {
         return stack
     }()
     
-    init(parent: Parent) {
+    init(parent: Parent? = nil) {
         self.parent = parent
         super.init(frame: .zero)
         configure()
@@ -36,8 +40,12 @@ final class ParentInfoView: UIView {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
        
-        nameView.set(R.String.name, with: parent.name ?? "not set")
-        ageView.set(R.String.age, with: String(describing: parent.age))
+        nameView.set(R.String.name, with: parent?.name ?? "not set")
+        guard let age = parent?.age else {
+            ageView.set(R.String.age, with: "-1")
+            return
+        }
+        ageView.set(R.String.age, with: String(describing: age))
        
         stackView.addArrangedSubview(nameView)
         stackView.addArrangedSubview(ageView)

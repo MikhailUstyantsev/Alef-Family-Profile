@@ -18,6 +18,7 @@ extension Child {
 
     @NSManaged public var name: String?
     @NSManaged public var age: Int16
+    @NSManaged public var id: UUID?
     @NSManaged public var parent: Parent?
 
 }

@@ -13,10 +13,6 @@
 		83CC70BB2D6627490013F29C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83CC70B12D6627490013F29C /* Assets.xcassets */; };
 		83CC70BD2D6627490013F29C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CC70B52D6627490013F29C /* LaunchScreen.storyboard */; };
 		83CC70C12D6629FB0013F29C /* FamilyProfileModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70BF2D6629FB0013F29C /* FamilyProfileModel.xcdatamodeld */; };
-		83CC70C72D662AD50013F29C /* Child+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70C32D662AD50013F29C /* Child+CoreDataClass.swift */; };
-		83CC70C82D662AD50013F29C /* Child+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70C42D662AD50013F29C /* Child+CoreDataProperties.swift */; };
-		83CC70C92D662AD50013F29C /* Parent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70C52D662AD50013F29C /* Parent+CoreDataClass.swift */; };
-		83CC70CA2D662AD50013F29C /* Parent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70C62D662AD50013F29C /* Parent+CoreDataProperties.swift */; };
 		83CC70CF2D6631EB0013F29C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70CE2D6631EB0013F29C /* StorageManager.swift */; };
 		83CC70D22D6632590013F29C /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70D12D6632590013F29C /* ErrorPresenter.swift */; };
 		83CC70D42D6632990013F29C /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70D32D6632990013F29C /* StorageError.swift */; };
@@ -44,6 +40,13 @@
 		83CC71052D6640490013F29C /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC71042D6640490013F29C /* TitleValueView.swift */; };
 		83CC71092D6640C50013F29C /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC71082D6640C50013F29C /* GFTitleLabel.swift */; };
 		83CC710C2D66447B0013F29C /* ParentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC710B2D66447B0013F29C /* ParentInfoView.swift */; };
+		83CC71112D66584E0013F29C /* Child+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC710D2D66584E0013F29C /* Child+CoreDataClass.swift */; };
+		83CC71122D66584E0013F29C /* Child+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC710E2D66584E0013F29C /* Child+CoreDataProperties.swift */; };
+		83CC71132D66584E0013F29C /* Parent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC710F2D66584E0013F29C /* Parent+CoreDataClass.swift */; };
+		83CC71142D66584E0013F29C /* Parent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC71102D66584E0013F29C /* Parent+CoreDataProperties.swift */; };
+		83CC71172D6664730013F29C /* ChildInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC71162D6664730013F29C /* ChildInfoTableViewCell.swift */; };
+		83CC711B2D666C270013F29C /* FamilyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC711A2D666C270013F29C /* FamilyProfileViewModel.swift */; };
+		83CC711D2D6670CD0013F29C /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC711C2D6670CD0013F29C /* TableHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,10 +58,6 @@
 		83CC70B42D6627490013F29C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83CC70B62D6627490013F29C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		83CC70C02D6629FB0013F29C /* FamilyProfileModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FamilyProfileModel.xcdatamodel; sourceTree = "<group>"; };
-		83CC70C32D662AD50013F29C /* Child+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Child+CoreDataClass.swift"; sourceTree = "<group>"; };
-		83CC70C42D662AD50013F29C /* Child+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Child+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		83CC70C52D662AD50013F29C /* Parent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+CoreDataClass.swift"; sourceTree = "<group>"; };
-		83CC70C62D662AD50013F29C /* Parent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		83CC70CE2D6631EB0013F29C /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		83CC70D12D6632590013F29C /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		83CC70D32D6632990013F29C /* StorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageError.swift; sourceTree = "<group>"; };
@@ -86,6 +85,13 @@
 		83CC71042D6640490013F29C /* TitleValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
 		83CC71082D6640C50013F29C /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
 		83CC710B2D66447B0013F29C /* ParentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentInfoView.swift; sourceTree = "<group>"; };
+		83CC710D2D66584E0013F29C /* Child+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Child+CoreDataClass.swift"; sourceTree = "<group>"; };
+		83CC710E2D66584E0013F29C /* Child+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Child+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		83CC710F2D66584E0013F29C /* Parent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+CoreDataClass.swift"; sourceTree = "<group>"; };
+		83CC71102D66584E0013F29C /* Parent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		83CC71162D6664730013F29C /* ChildInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildInfoTableViewCell.swift; sourceTree = "<group>"; };
+		83CC711A2D666C270013F29C /* FamilyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyProfileViewModel.swift; sourceTree = "<group>"; };
+		83CC711C2D6670CD0013F29C /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +149,10 @@
 			isa = PBXGroup;
 			children = (
 				83CC70BF2D6629FB0013F29C /* FamilyProfileModel.xcdatamodeld */,
-				83CC70C32D662AD50013F29C /* Child+CoreDataClass.swift */,
-				83CC70C42D662AD50013F29C /* Child+CoreDataProperties.swift */,
-				83CC70C52D662AD50013F29C /* Parent+CoreDataClass.swift */,
-				83CC70C62D662AD50013F29C /* Parent+CoreDataProperties.swift */,
+				83CC710D2D66584E0013F29C /* Child+CoreDataClass.swift */,
+				83CC710E2D66584E0013F29C /* Child+CoreDataProperties.swift */,
+				83CC71102D66584E0013F29C /* Parent+CoreDataProperties.swift */,
+				83CC710F2D66584E0013F29C /* Parent+CoreDataClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,8 +160,10 @@
 		83CC70CB2D662B720013F29C /* Main Module */ = {
 			isa = PBXGroup;
 			children = (
+				83CC71152D66642A0013F29C /* Cells */,
 				83CC710A2D66442B0013F29C /* Views */,
-				83CC70B22D6627490013F29C /* FamilyProfileViewController.swift */,
+				83CC71182D666BDA0013F29C /* Controllers */,
+				83CC71192D666BE60013F29C /* View Models */,
 			);
 			path = "Main Module";
 			sourceTree = "<group>";
@@ -268,8 +276,33 @@
 			isa = PBXGroup;
 			children = (
 				83CC710B2D66447B0013F29C /* ParentInfoView.swift */,
+				83CC711C2D6670CD0013F29C /* TableHeaderView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		83CC71152D66642A0013F29C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				83CC71162D6664730013F29C /* ChildInfoTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		83CC71182D666BDA0013F29C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				83CC70B22D6627490013F29C /* FamilyProfileViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		83CC71192D666BE60013F29C /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				83CC711A2D666C270013F29C /* FamilyProfileViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,18 +396,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83CC711D2D6670CD0013F29C /* TableHeaderView.swift in Sources */,
+				83CC711B2D666C270013F29C /* FamilyProfileViewModel.swift in Sources */,
 				83CC70CF2D6631EB0013F29C /* StorageManager.swift in Sources */,
 				83CC70D42D6632990013F29C /* StorageError.swift in Sources */,
+				83CC71172D6664730013F29C /* ChildInfoTableViewCell.swift in Sources */,
 				83CC70D22D6632590013F29C /* ErrorPresenter.swift in Sources */,
 				83CC70B82D6627490013F29C /* AppDelegate.swift in Sources */,
 				83CC71032D663B020013F29C /* UIView+Ext.swift in Sources */,
 				83CC71052D6640490013F29C /* TitleValueView.swift in Sources */,
+				83CC71112D66584E0013F29C /* Child+CoreDataClass.swift in Sources */,
+				83CC71122D66584E0013F29C /* Child+CoreDataProperties.swift in Sources */,
+				83CC71132D66584E0013F29C /* Parent+CoreDataClass.swift in Sources */,
+				83CC71142D66584E0013F29C /* Parent+CoreDataProperties.swift in Sources */,
 				83CC70B92D6627490013F29C /* FamilyProfileViewController.swift in Sources */,
 				83CC71012D663AE90013F29C /* UITableView+Ext.swift in Sources */,
-				83CC70C72D662AD50013F29C /* Child+CoreDataClass.swift in Sources */,
-				83CC70C82D662AD50013F29C /* Child+CoreDataProperties.swift in Sources */,
-				83CC70C92D662AD50013F29C /* Parent+CoreDataClass.swift in Sources */,
-				83CC70CA2D662AD50013F29C /* Parent+CoreDataProperties.swift in Sources */,
 				83CC71092D6640C50013F29C /* GFTitleLabel.swift in Sources */,
 				83CC70BA2D6627490013F29C /* SceneDelegate.swift in Sources */,
 				83CC70FD2D6637CC0013F29C /* Resouces.swift in Sources */,

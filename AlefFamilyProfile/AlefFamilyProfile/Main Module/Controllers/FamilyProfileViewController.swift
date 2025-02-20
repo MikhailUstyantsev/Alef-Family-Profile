@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class FamilyProfileViewController: UIViewController {
     
@@ -21,10 +22,7 @@ final class FamilyProfileViewController: UIViewController {
     private let marginOffset: CGFloat = 20
     private let tableView = UITableView()
     private lazy var tableViewDataSource = makeDataSource()
-    
-    private lazy var dummyChildren: [Child] = [
-        Child(context: familyProfileViewModel.storageManager.managedObjectContext)
-    ]
+    private var cancellables = Set<AnyCancellable>()
     
     
     
@@ -42,6 +40,7 @@ final class FamilyProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        familyProfileViewModel.loadChildrenFromStorage()
     }
     
     
@@ -94,6 +93,17 @@ final class FamilyProfileViewController: UIViewController {
         setupTitle()
         setupParentView()
         configureTableView()
+        bind()
+    }
+    
+    
+    private func bind() {
+        familyProfileViewModel.childrenPublisher
+            .sink { [weak self] children in
+                guard let self else { return }
+                self.applySnapshot(with: children)
+            }
+            .store(in: &cancellables)
     }
     
     
@@ -140,9 +150,6 @@ extension FamilyProfileViewController: UITableViewDelegate {
             return UIView()
         }
         header.delegate = self
-        if dummyChildren.count >= 5 {
-            header.isTableDataSourceFull = true
-        }
         return header
     }
     
@@ -154,11 +161,26 @@ extension FamilyProfileViewController: TableHeaderViewDelegate {
         let addChildViewController = AddChildViewController()
         let navController = UINavigationController()
         navController.setViewControllers([addChildViewController], animated: false)
-        addChildViewController.callBack = { child in
-                print("""
-                      Имя --> \(child.name)
-                      Возраст --> \(child.age)
-                      """)
+        addChildViewController.callBack = { [weak self] dummyChild in
+            guard let self else { return }
+            
+           let context = self.familyProfileViewModel.storageManager.managedObjectContext
+            
+            let child = Child(context: context)
+            child.id = UUID()
+            child.name = dummyChild.name
+            child.age = dummyChild.age
+            context.perform {
+                do {
+                    try context.save()
+                } catch {
+                    let message = StorageError.savingError.rawValue
+                    DispatchQueue.main.async {
+                        ErrorPresenter.showError(message: message, on: self)
+                    }
+                }
+            }
+            self.familyProfileViewModel.loadChildrenFromStorage()
         }
         navigationController?.present(navController, animated: true)
     }

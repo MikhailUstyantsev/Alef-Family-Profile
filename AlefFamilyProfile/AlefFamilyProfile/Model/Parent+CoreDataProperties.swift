@@ -2,7 +2,7 @@
 //  Parent+CoreDataProperties.swift
 //  AlefFamilyProfile
 //
-//  Created by Mikhail Ustyantsev on 19.02.2025.
+//  Created by Mikhail Ustyantsev on 21.02.2025.
 //
 //
 
@@ -16,9 +16,9 @@ extension Parent {
         return NSFetchRequest<Parent>(entityName: "Parent")
     }
 
-    @NSManaged public var name: String?
     @NSManaged public var age: Int16
     @NSManaged public var id: UUID?
+    @NSManaged public var name: String?
     @NSManaged public var children: NSSet?
 
 }

@@ -10,5 +10,5 @@ import Foundation
 
 struct DummyChild {
     var name: String
-    var age: Int
+    var age: Int16
 }

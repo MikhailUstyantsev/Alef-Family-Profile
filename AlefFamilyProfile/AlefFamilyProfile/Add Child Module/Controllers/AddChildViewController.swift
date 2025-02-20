@@ -127,7 +127,7 @@ final class AddChildViewController: UIViewController {
             dummyChild.name = text
             
         case TextFieldData.ageTextField.rawValue:
-            dummyChild.age = Int(text) ?? 0
+            dummyChild.age = Int16(text) ?? 0
             
         default:
             break

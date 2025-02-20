@@ -154,6 +154,12 @@ extension FamilyProfileViewController: TableHeaderViewDelegate {
         let addChildViewController = AddChildViewController()
         let navController = UINavigationController()
         navController.setViewControllers([addChildViewController], animated: false)
+        addChildViewController.callBack = { child in
+                print("""
+                      Имя --> \(child.name)
+                      Возраст --> \(child.age)
+                      """)
+        }
         navigationController?.present(navController, animated: true)
     }
     

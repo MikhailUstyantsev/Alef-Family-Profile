@@ -30,6 +30,9 @@ enum R {
         static let addChild = "Добавить ребенка"
         static let clear = "Очистить"
         static let delete = "Удалить"
+        static let enterName = "Введите имя"
+        static let enterAge = "Введите возраст"
+        static let save = "Сохранить"
     }
     
     

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		83571FBF2D67842700F08BAE /* AddChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FBE2D67842600F08BAE /* AddChildViewController.swift */; };
 		83571FC22D6796B300F08BAE /* FPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FC12D6796B300F08BAE /* FPTextField.swift */; };
+		83571FC52D6797D100F08BAE /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FC42D6797D100F08BAE /* UIImage+Ext.swift */; };
+		83571FC72D67983600F08BAE /* BaseInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FC62D67983600F08BAE /* BaseInputView.swift */; };
+		83571FC92D67A67500F08BAE /* DummyChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FC82D67A67500F08BAE /* DummyChild.swift */; };
 		83CC70B82D6627490013F29C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70B02D6627490013F29C /* AppDelegate.swift */; };
 		83CC70B92D6627490013F29C /* FamilyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70B22D6627490013F29C /* FamilyProfileViewController.swift */; };
 		83CC70BA2D6627490013F29C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70B62D6627490013F29C /* SceneDelegate.swift */; };
@@ -56,6 +59,9 @@
 /* Begin PBXFileReference section */
 		83571FBE2D67842600F08BAE /* AddChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChildViewController.swift; sourceTree = "<group>"; };
 		83571FC12D6796B300F08BAE /* FPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTextField.swift; sourceTree = "<group>"; };
+		83571FC42D6797D100F08BAE /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		83571FC62D67983600F08BAE /* BaseInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputView.swift; sourceTree = "<group>"; };
+		83571FC82D67A67500F08BAE /* DummyChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyChild.swift; sourceTree = "<group>"; };
 		83CC70982D6605450013F29C /* AlefFamilyProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlefFamilyProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CC70B02D6627490013F29C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83CC70B12D6627490013F29C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 		83571FBC2D6783DC00F08BAE /* Add Child Module */ = {
 			isa = PBXGroup;
 			children = (
+				83571FC32D67977700F08BAE /* Views */,
 				83571FBD2D6783F100F08BAE /* Controllers */,
 			);
 			path = "Add Child Module";
@@ -135,6 +142,14 @@
 				83571FC12D6796B300F08BAE /* FPTextField.swift */,
 			);
 			path = TextFields;
+			sourceTree = "<group>";
+		};
+		83571FC32D67977700F08BAE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				83571FC62D67983600F08BAE /* BaseInputView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		83CC708F2D6605450013F29C = {
@@ -186,6 +201,7 @@
 				83CC710E2D66584E0013F29C /* Child+CoreDataProperties.swift */,
 				83CC71102D66584E0013F29C /* Parent+CoreDataProperties.swift */,
 				83CC710F2D66584E0013F29C /* Parent+CoreDataClass.swift */,
+				83571FC82D67A67500F08BAE /* DummyChild.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,6 +303,7 @@
 			children = (
 				83CC71022D663B020013F29C /* UIView+Ext.swift */,
 				83CC71002D663AE90013F29C /* UITableView+Ext.swift */,
+				83571FC42D6797D100F08BAE /* UIImage+Ext.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -440,17 +457,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83571FC52D6797D100F08BAE /* UIImage+Ext.swift in Sources */,
 				83CC711D2D6670CD0013F29C /* TableHeaderView.swift in Sources */,
 				83CC711F2D677B2B0013F29C /* FPTitleLabel.swift in Sources */,
 				83CC711B2D666C270013F29C /* FamilyProfileViewModel.swift in Sources */,
 				83571FC22D6796B300F08BAE /* FPTextField.swift in Sources */,
 				83CC71222D677C0D0013F29C /* FPButton.swift in Sources */,
+				83571FC92D67A67500F08BAE /* DummyChild.swift in Sources */,
 				83CC70CF2D6631EB0013F29C /* StorageManager.swift in Sources */,
 				83CC70D42D6632990013F29C /* StorageError.swift in Sources */,
 				83CC71172D6664730013F29C /* ChildInfoTableViewCell.swift in Sources */,
 				83CC70D22D6632590013F29C /* ErrorPresenter.swift in Sources */,
 				83CC70B82D6627490013F29C /* AppDelegate.swift in Sources */,
 				83571FBF2D67842700F08BAE /* AddChildViewController.swift in Sources */,
+				83571FC72D67983600F08BAE /* BaseInputView.swift in Sources */,
 				83CC71032D663B020013F29C /* UIView+Ext.swift in Sources */,
 				83CC71052D6640490013F29C /* TitleValueView.swift in Sources */,
 				83CC71112D66584E0013F29C /* Child+CoreDataClass.swift in Sources */,

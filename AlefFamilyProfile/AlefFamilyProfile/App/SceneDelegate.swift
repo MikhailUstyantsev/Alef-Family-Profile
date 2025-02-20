@@ -19,7 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         let familyProfileViewModel = FamilyProfileViewModel()
-        window?.rootViewController = FamilyProfileViewController(viewModel: familyProfileViewModel)
+        let navigationVC = UINavigationController(rootViewController: FamilyProfileViewController(viewModel: familyProfileViewModel))
+        navigationVC.navigationBar.isHidden = true
+        window?.rootViewController = navigationVC
         window?.makeKeyAndVisible()
     }
 

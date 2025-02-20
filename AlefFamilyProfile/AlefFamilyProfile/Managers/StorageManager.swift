@@ -10,6 +10,10 @@ import CoreData
 
 final class StorageManager {
     
+    static let shared = StorageManager()
+    
+    private init() {}
+    
     var managedObjectContext: NSManagedObjectContext {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError("Unable to cast UIApplication.shared.delegate to AppDelegate")

@@ -49,9 +49,7 @@ final class ParentInfoView: UIView {
        
         stackView.addArrangedSubview(nameView)
         stackView.addArrangedSubview(ageView)
-        
         addSubviews(stackView)
-        
         stackView.pinToSuperviewEdges()
     }
 

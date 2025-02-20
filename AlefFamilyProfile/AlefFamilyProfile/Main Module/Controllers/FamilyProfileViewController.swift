@@ -17,7 +17,7 @@ final class FamilyProfileViewController: UIViewController {
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Child>
     
     private let familyProfileViewModel: FamilyProfileViewModel
-    let titleLabel = UILabel()
+    let titleLabel = FPTitleLabel(textAlignment: .left, fontSize: 18, textColor: R.Color.black)
     private let marginOffset: CGFloat = 20
     private let tableView = UITableView()
     private lazy var tableViewDataSource = makeDataSource()
@@ -42,15 +42,11 @@ final class FamilyProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        
     }
     
     
     private func setupTitle() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = R.String.title
-        titleLabel.textColor = R.Color.black
-        titleLabel.font = R.Font.montserratSemiBold(with: 18)
         view.addSubviews(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: marginOffset),
@@ -143,8 +139,23 @@ extension FamilyProfileViewController: UITableViewDelegate {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: TableHeaderView.self)) as? TableHeaderView else {
             return UIView()
         }
-        
+        header.delegate = self
+        if dummyChildren.count >= 5 {
+            header.isTableDataSourceFull = true
+        }
         return header
     }
+    
+}
+
+
+extension FamilyProfileViewController: TableHeaderViewDelegate {
+    func didTapAddChildButton() {
+        let addChildViewController = AddChildViewController()
+        let navController = UINavigationController()
+        navController.setViewControllers([addChildViewController], animated: false)
+        navigationController?.present(navController, animated: true)
+    }
+    
     
 }

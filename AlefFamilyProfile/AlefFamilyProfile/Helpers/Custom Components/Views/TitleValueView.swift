@@ -9,8 +9,8 @@ import UIKit
 
 final class TitleValueView: UIView {
     
-    private let titleLabel = FPLabel(textAlignment: .left, fontSize: 14, textColor: UIColor.systemGray2)
-    private let valueLabel = FPLabel(textAlignment: .left, fontSize: 14, textColor: .label)
+    private let titleLabel = FPBodyLabel(textAlignment: .left, fontSize: 14, textColor: UIColor.systemGray2)
+    private let valueLabel = FPBodyLabel(textAlignment: .left, fontSize: 14, textColor: .label)
     
     private let stackView: UIStackView = {
         let stack = UIStackView()

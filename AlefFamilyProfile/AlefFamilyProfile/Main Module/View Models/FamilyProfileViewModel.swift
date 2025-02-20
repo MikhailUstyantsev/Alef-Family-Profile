@@ -9,6 +9,6 @@ import Foundation
 
 final class FamilyProfileViewModel: NSObject {
     
-    let storageManager = StorageManager()
+    let storageManager = StorageManager.shared
     
 }

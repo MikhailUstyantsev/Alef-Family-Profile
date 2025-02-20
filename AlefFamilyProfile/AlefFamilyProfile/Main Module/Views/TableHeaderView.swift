@@ -7,23 +7,66 @@
 
 import UIKit
 
+protocol TableHeaderViewDelegate {
+    func didTapAddChildButton()
+}
+
+
 class TableHeaderView: UITableViewHeaderFooterView {
-
-        override init(reuseIdentifier: String?) {
-            super.init(reuseIdentifier: reuseIdentifier)
-            configure()
-        }
-
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-
-        private func configure() {
-            contentView.backgroundColor = .cyan
-            
-            NSLayoutConstraint.activate([
-              
-            ])
-        }
-
+    
+    var delegate: TableHeaderViewDelegate?
+    var isTableDataSourceFull: Bool = false
+    
+    let label = FPTitleLabel(textAlignment: .left, fontSize: 18, textColor: R.Color.black)
+    let addChildButton = FPButton(color: R.Color.bluish ?? .blue, title: R.String.addChild, systemImageName: "plus")
+    
+    private let stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.spacing = 16
+        
+        return stack
+    }()
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        configure()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        addChildButton.rounded()
+        if isTableDataSourceFull {
+            addChildButton.isHidden = true
+        } 
+    }
+    
+    
+    private func configure() {
+        label.text = R.String.childrenMax5
+        contentView.backgroundColor = .systemBackground
+        
+        addChildButton.layer.borderColor = R.Color.bluish?.cgColor
+        addChildButton.layer.borderWidth = 2.5
+        
+        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(addChildButton)
+        addSubviews(stackView)
+        stackView.pinToSuperviewEdges([.top, .bottom], constant: 5)
+        configureAddChildButton()
+    }
+    
+    
+    func configureAddChildButton() {
+        addChildButton.addTarget(self, action: #selector(addChildTapped), for: .touchUpInside)
+    }
+    
+    @objc func addChildTapped() {
+        delegate?.didTapAddChildButton()
+    }
 }

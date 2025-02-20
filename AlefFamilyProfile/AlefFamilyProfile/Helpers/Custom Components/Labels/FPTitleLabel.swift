@@ -1,13 +1,13 @@
 //
-//  FPLabel.swift
+//  FPTitleLabel.swift
 //  AlefFamilyProfile
 //
-//  Created by Mikhail Ustyantsev on 19.02.2025.
+//  Created by Mikhail Ustyantsev on 20.02.2025.
 //
 
 import UIKit
 
-final class FPLabel: UILabel {
+class FPTitleLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +23,7 @@ final class FPLabel: UILabel {
     convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat, textColor: UIColor?) {
         self.init(frame: .zero)
         self.textAlignment = textAlignment
-        self.font = R.Font.montserratMedium(with: fontSize)
+        self.font = R.Font.montserratSemiBold(with: fontSize)
         self.textColor = textColor
     }
     
@@ -34,4 +34,5 @@ final class FPLabel: UILabel {
         lineBreakMode                 = .byTruncatingTail
         translatesAutoresizingMaskIntoConstraints = false
     }
+
 }

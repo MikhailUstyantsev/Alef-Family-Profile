@@ -12,6 +12,7 @@ final class FamilyProfileViewModel: NSObject {
     
     let storageManager = StorageManager.shared
     var childrenPublisher = PassthroughSubject<[Child], Never>()
+    lazy var parent = Parent(context: storageManager.managedObjectContext)
     
     func loadChildrenFromStorage() {
         do {

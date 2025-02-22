@@ -43,7 +43,6 @@ final class FamilyProfileViewController: UIViewController {
     private lazy var tableViewDataSource = makeDataSource()
     private var cancellables = Set<AnyCancellable>()
     
-    
     init(viewModel: FamilyProfileViewModel) {
         self.familyProfileViewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -72,10 +71,9 @@ final class FamilyProfileViewController: UIViewController {
     }
     
     private func setupParentView() {
-        let parent = Parent(context: familyProfileViewModel.storageManager.managedObjectContext)
-        parent.name = "Петр"
-        parent.age = 99
-        parentView.parent = parent
+        familyProfileViewModel.parent.name = "Петр"
+        familyProfileViewModel.parent.age = 99
+        parentView.parent = familyProfileViewModel.parent
         view.addSubviews(parentView)
         NSLayoutConstraint.activate([
             parentView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
@@ -239,11 +237,25 @@ extension FamilyProfileViewController: ChildInfoTableViewCellDelegate {
 
 extension FamilyProfileViewController: TableFooterViewDelegate {
     func didTapDeleteAllChildrenButton() {
-        do {
-            try familyProfileViewModel.storageManager.deleteAllChildren()
-            familyProfileViewModel.loadChildrenFromStorage()
-        } catch {
-            ErrorPresenter.showError(message: StorageError.clearStorageError.rawValue, on: self)
+        let alert = UIAlertController(title: "", message: R.String.clearScreen, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: R.String.cancel, style: .cancel, handler: nil)
+        
+        let clearAction = UIAlertAction(title: R.String.resetData, style: .destructive) { [weak self] _ in
+            guard let self else { return }
+            do {
+                try familyProfileViewModel.storageManager.deleteAllChildren()
+                familyProfileViewModel.parent.age = 0
+                familyProfileViewModel.parent.name = "..."
+                parentView.parent = familyProfileViewModel.parent
+                familyProfileViewModel.loadChildrenFromStorage()
+            } catch {
+                ErrorPresenter.showError(message: StorageError.clearStorageError.rawValue, on: self)
+            }
         }
+        alert.addAction(cancelAction)
+        alert.addAction(clearAction)
+        
+        present(alert, animated: true)
     }
 }

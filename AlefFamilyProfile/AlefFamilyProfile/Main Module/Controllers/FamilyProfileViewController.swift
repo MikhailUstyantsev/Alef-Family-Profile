@@ -74,6 +74,7 @@ final class FamilyProfileViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.sectionHeaderTopPadding = 0
         tableView.sectionHeaderHeight = 60
+        tableView.rowHeight = 170
         tableView.delegate = self
         tableView.backgroundColor = .clear
         
@@ -117,8 +118,10 @@ final class FamilyProfileViewController: UIViewController {
                 let cell = tableView.dequeueReusableCell(
                     withIdentifier: String(describing: ChildInfoTableViewCell.self),
                     for: indexPath) as? ChildInfoTableViewCell
-                // Configure the cell, set its delegate and indexPath
-                
+                // Configure the cell, set its delegate 
+                cell?.set(with: item)
+                cell?.delegate = self
+                cell?.child = item
                 
                 return cell
             })
@@ -184,6 +187,17 @@ extension FamilyProfileViewController: TableHeaderViewDelegate {
         }
         navigationController?.present(navController, animated: true)
     }
-    
+}
+
+
+extension FamilyProfileViewController: ChildInfoTableViewCellDelegate {
+    func deleteObjectFromStorage(_ child: Child?) {
+        guard let child else { return }
+        do {
+            try familyProfileViewModel.deleteChildFromStorage(child: child)
+        } catch let error as NSError {
+            ErrorPresenter.showError(message: error.localizedDescription, on: self)
+        }
+    }
     
 }

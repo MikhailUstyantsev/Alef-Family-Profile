@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		83571FBF2D67842700F08BAE /* AddChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FBE2D67842600F08BAE /* AddChildViewController.swift */; };
 		83571FC22D6796B300F08BAE /* FPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FC12D6796B300F08BAE /* FPTextField.swift */; };
-		83571FC52D6797D100F08BAE /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FC42D6797D100F08BAE /* UIImage+Ext.swift */; };
 		83571FC72D67983600F08BAE /* BaseInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FC62D67983600F08BAE /* BaseInputView.swift */; };
 		83571FC92D67A67500F08BAE /* DummyChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FC82D67A67500F08BAE /* DummyChild.swift */; };
 		83571FD62D67BC7D00F08BAE /* Child+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FD22D67BC7D00F08BAE /* Child+CoreDataClass.swift */; };
@@ -59,7 +58,6 @@
 /* Begin PBXFileReference section */
 		83571FBE2D67842600F08BAE /* AddChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChildViewController.swift; sourceTree = "<group>"; };
 		83571FC12D6796B300F08BAE /* FPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTextField.swift; sourceTree = "<group>"; };
-		83571FC42D6797D100F08BAE /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		83571FC62D67983600F08BAE /* BaseInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputView.swift; sourceTree = "<group>"; };
 		83571FC82D67A67500F08BAE /* DummyChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyChild.swift; sourceTree = "<group>"; };
 		83571FD22D67BC7D00F08BAE /* Child+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Child+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -209,7 +207,6 @@
 		83CC70CB2D662B720013F29C /* Main Module */ = {
 			isa = PBXGroup;
 			children = (
-				83CC71152D66642A0013F29C /* Cells */,
 				83CC710A2D66442B0013F29C /* Views */,
 				83CC71182D666BDA0013F29C /* Controllers */,
 				83CC71192D666BE60013F29C /* View Models */,
@@ -303,7 +300,6 @@
 			children = (
 				83CC71022D663B020013F29C /* UIView+Ext.swift */,
 				83CC71002D663AE90013F29C /* UITableView+Ext.swift */,
-				83571FC42D6797D100F08BAE /* UIImage+Ext.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -330,6 +326,7 @@
 			children = (
 				83CC710B2D66447B0013F29C /* ParentInfoView.swift */,
 				83CC711C2D6670CD0013F29C /* TableHeaderView.swift */,
+				83CC71152D66642A0013F29C /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -457,7 +454,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83571FC52D6797D100F08BAE /* UIImage+Ext.swift in Sources */,
 				83CC711D2D6670CD0013F29C /* TableHeaderView.swift in Sources */,
 				83CC711F2D677B2B0013F29C /* FPTitleLabel.swift in Sources */,
 				83CC711B2D666C270013F29C /* FamilyProfileViewModel.swift in Sources */,

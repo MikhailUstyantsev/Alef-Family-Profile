@@ -12,17 +12,22 @@ final class FamilyProfileViewModel: NSObject {
     
     let storageManager = StorageManager.shared
     var childrenPublisher = CurrentValueSubject<[Child], Never>([])
-    var storageCapacity = 0
     
     func loadChildrenFromStorage() {
         do {
             let children = try storageManager.retrieveAllChildren()
-            storageCapacity = children.count
             childrenPublisher.value = children
         } catch {
             //Показать алерт в контроллере
         }
     }
     
-    
+    func deleteChildFromStorage(child: Child) throws {
+        do {
+            try storageManager.deleteChild(child)
+            loadChildrenFromStorage()
+        } catch {
+            throw error
+        }
+    }
 }

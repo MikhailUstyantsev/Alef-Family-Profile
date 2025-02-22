@@ -28,7 +28,7 @@ class FPButton: UIButton {
     
     private func configure() {
         
-        configuration = .plain()
+        configuration = .borderless()
         configuration?.cornerStyle = .capsule
         translatesAutoresizingMaskIntoConstraints = false
     }

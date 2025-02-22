@@ -12,7 +12,7 @@ protocol TableHeaderViewDelegate {
 }
 
 
-class TableHeaderView: UITableViewHeaderFooterView {
+final class TableHeaderView: UITableViewHeaderFooterView {
     
     var delegate: TableHeaderViewDelegate?
     var isTableDataSourceFull: Bool = false
@@ -41,9 +41,6 @@ class TableHeaderView: UITableViewHeaderFooterView {
     override func layoutSubviews() {
         super.layoutSubviews()
         addChildButton.rounded()
-        if isTableDataSourceFull {
-            addChildButton.isHidden = true
-        } 
     }
     
     

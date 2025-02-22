@@ -9,7 +9,7 @@
      <td>Present day in purple and selected day in pink</td>
   </tr>
   <tr>
-    <td><img src="(https://github.com/MikhailUstyantsev/Alef-Family-Profile/blob/main/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20-%202025-02-22%20at%2008.33.31-portrait.png)" width=270 height=480></td>
+    <td><img src="https://github.com/MikhailUstyantsev/Alef-Family-Profile/blob/main/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20-%202025-02-22%20at%2008.33.31-portrait.png" width=270 height=480></td>
     <td><img src="(https://github.com/MikhailUstyantsev/Alef-Family-Profile/blob/main/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20-%202025-02-22%20at%2009.58.42-portrait.png)" width=270 height=480></td>
   </tr>
  </table> 

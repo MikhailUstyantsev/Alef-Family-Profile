@@ -12,14 +12,14 @@ protocol ChildInfoTableViewCellDelegate: AnyObject {
 }
 
 final class ChildInfoTableViewCell: UITableViewCell {
-
+    
     //MARK: - Properties
     var delegate: ChildInfoTableViewCellDelegate?
     var child: Child?
     private let nameView = TitleValueView()
     private let ageView = TitleValueView()
     private let deleteButton = FPButton(color: .bluish, title: R.String.delete, systemImageName: "")
-   
+    
     private let spacer: UIView = {
         let view = UIView()
         view.backgroundColor = .clear

@@ -41,25 +41,15 @@ final class StorageManager {
         }
     }
     
-
-    //MARK: на будущее - сейчас этот функционал у класса Parent не используется
     
-    func deleteParent(_ object: Parent) throws {
-        managedObjectContext.delete(object)
+    func deleteAllChildren() throws {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Child.fetchRequest()
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do {
+            try managedObjectContext.execute(batchDeleteRequest)
             try managedObjectContext.save()
         } catch {
-            throw StorageError.deletingError
-        }
-    }
-    
-    
-    func retrieveAllParents() throws -> [Parent] {
-        do {
-            let fetchRequest = NSFetchRequest<Parent>(entityName: "Parent")
-            return try managedObjectContext.fetch(fetchRequest)
-        } catch {
-            throw StorageError.retrieveError
+            throw StorageError.clearStorageError
         }
     }
 }

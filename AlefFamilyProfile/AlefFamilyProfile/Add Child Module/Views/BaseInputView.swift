@@ -26,12 +26,10 @@ class BaseInputView: UIView {
     
     
     private func setupViews() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = R.Font.montserratRegular(with: 14)
         titleLabel.textColor = .secondaryLabel
         titleLabel.setContentHuggingPriority(.defaultHigh + 1, for: .vertical)
         
-        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.clearButtonMode = .whileEditing
         textField.autocorrectionType = .no
         textField.spellCheckingType = .no

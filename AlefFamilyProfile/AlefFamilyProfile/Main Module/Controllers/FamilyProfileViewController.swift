@@ -90,14 +90,13 @@ final class FamilyProfileViewController: UIViewController {
         tableView.register(TableHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: TableHeaderView.self))
         tableView.register(TableFooterView.self, forHeaderFooterViewReuseIdentifier: String(describing: TableFooterView.self))
         
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.sectionHeaderTopPadding = 0
         tableView.sectionHeaderHeight = 60
-        tableView.sectionFooterHeight = 60
         tableView.rowHeight = 170
         tableView.delegate = self
         tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
+        
         
         view.addSubviews(tableView)
         NSLayoutConstraint.activate([
@@ -107,7 +106,7 @@ final class FamilyProfileViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-
+    
     
     private func configureViewController() {
         view.backgroundColor = .systemBackground
@@ -139,7 +138,7 @@ final class FamilyProfileViewController: UIViewController {
                 let cell = tableView.dequeueReusableCell(
                     withIdentifier: String(describing: ChildInfoTableViewCell.self),
                     for: indexPath) as? ChildInfoTableViewCell
-                // Configure the cell, set its delegate 
+                
                 cell?.set(with: item)
                 cell?.delegate = self
                 cell?.child = item
@@ -163,13 +162,16 @@ final class FamilyProfileViewController: UIViewController {
 
 
 extension FamilyProfileViewController: UITableViewDelegate {
-  
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: TableHeaderView.self)) as? TableHeaderView else {
             return UIView()
         }
         header.delegate = self
         self.familyProfileHeaderDelegate = header
+        if childrenCount >= 5 {
+            header.addChildButton.isHidden = true
+        }
         return header
     }
     
@@ -177,9 +179,17 @@ extension FamilyProfileViewController: UITableViewDelegate {
         guard let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: TableFooterView.self)) as? TableFooterView else {
             return UIView()
         }
-        
+        footer.delegate = self
         self.familyProfileFooterDelegate = footer
         return footer
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if childrenCount == 0 {
+            return 0
+        } else {
+            return 60
+        }
     }
 }
 
@@ -192,7 +202,7 @@ extension FamilyProfileViewController: TableHeaderViewDelegate {
         addChildViewController.callBack = { [weak self] dummyChild in
             guard let self else { return }
             
-           let context = self.familyProfileViewModel.storageManager.managedObjectContext
+            let context = self.familyProfileViewModel.storageManager.managedObjectContext
             
             let child = Child(context: context)
             child.id = UUID()
@@ -224,5 +234,16 @@ extension FamilyProfileViewController: ChildInfoTableViewCellDelegate {
             ErrorPresenter.showError(message: StorageError.deletingError.rawValue, on: self)
         }
     }
-    
+}
+
+
+extension FamilyProfileViewController: TableFooterViewDelegate {
+    func didTapDeleteAllChildrenButton() {
+        do {
+            try familyProfileViewModel.storageManager.deleteAllChildren()
+            familyProfileViewModel.loadChildrenFromStorage()
+        } catch {
+            ErrorPresenter.showError(message: StorageError.clearStorageError.rawValue, on: self)
+        }
+    }
 }

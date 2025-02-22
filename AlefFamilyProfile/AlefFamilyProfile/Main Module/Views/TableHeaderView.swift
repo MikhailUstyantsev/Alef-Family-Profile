@@ -21,7 +21,6 @@ final class TableHeaderView: UITableViewHeaderFooterView {
     
     private let stackView: UIStackView = {
         let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.spacing = 16
         
         return stack
@@ -71,13 +70,14 @@ final class TableHeaderView: UITableViewHeaderFooterView {
 extension TableHeaderView: FamilyProfileViewHeaderDelegate {
     func hideAddChildButton(_ childrenCount: Int) {
         if childrenCount >= 5 {
-            UIView.animate(withDuration: 0.3) {
-                self.addChildButton.isHidden = true
+            UIView.animate(withDuration: 0.5) {
+                self.addChildButton.transform = CGAffineTransform(translationX: self.frame.width, y: 0)
             }
         } else {
-            UIView.animate(withDuration: 0.3) {
-                self.addChildButton.isHidden = false
+            UIView.animate(withDuration: 0.5) {
+                self.addChildButton.transform = CGAffineTransform(translationX: 0, y: 0)
             }
+            self.addChildButton.isHidden = false
         }
     }
 }

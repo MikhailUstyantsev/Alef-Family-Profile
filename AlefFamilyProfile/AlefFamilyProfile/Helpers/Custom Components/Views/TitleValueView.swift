@@ -14,7 +14,6 @@ final class TitleValueView: UIView {
     
     private let stackView: UIStackView = {
         let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = 0
         stack.distribution = .fillEqually

@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol TableFooterViewDelegate {
+    func didTapDeleteAllChildrenButton()
+}
+
 final class TableFooterView: UITableViewHeaderFooterView {
     
+    var delegate: TableFooterViewDelegate?
     
     let deleteAllChildrenButton = FPButton(color: R.Color.lightRed ?? .red, title: R.String.clear, systemImageName: "")
     
@@ -29,22 +34,25 @@ final class TableFooterView: UITableViewHeaderFooterView {
     
     
     private func configure() {
-            deleteAllChildrenButton.layer.borderColor = R.Color.lightRed?.cgColor
-            deleteAllChildrenButton.layer.borderWidth = 2.5
-            addSubviews(deleteAllChildrenButton)
-            
-            NSLayoutConstraint.activate([
-                deleteAllChildrenButton.topAnchor.constraint(equalTo: topAnchor),
-                deleteAllChildrenButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-                deleteAllChildrenButton.widthAnchor.constraint(equalToConstant: 200),
-                deleteAllChildrenButton.heightAnchor.constraint(equalToConstant: 50),
-            ])
+        contentView.backgroundColor = .systemBackground
+        
+        deleteAllChildrenButton.layer.borderColor = R.Color.lightRed?.cgColor
+        deleteAllChildrenButton.layer.borderWidth = 2.5
+        addSubviews(deleteAllChildrenButton)
+        
+        NSLayoutConstraint.activate([
+            deleteAllChildrenButton.topAnchor.constraint(equalTo: topAnchor),
+            deleteAllChildrenButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            deleteAllChildrenButton.widthAnchor.constraint(equalToConstant: 200),
+            deleteAllChildrenButton.heightAnchor.constraint(equalToConstant: 50),
+        ])
         
         deleteAllChildrenButton.addTarget(self, action: #selector(deleteAllChildrenTapped), for: .touchUpInside)
+        
     }
     
     @objc func deleteAllChildrenTapped() {
-        print("--> deleting all children...")
+        delegate?.didTapDeleteAllChildrenButton()
     }
 }
 

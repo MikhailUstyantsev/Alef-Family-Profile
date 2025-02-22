@@ -18,7 +18,6 @@ final class AddChildViewController: UIViewController {
     private let inputAgeView = BaseInputView()
     private let stackView: UIStackView = {
         let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fillEqually
         stack.axis = .vertical
         stack.spacing = 10
@@ -90,6 +89,16 @@ final class AddChildViewController: UIViewController {
     
     
     @objc private func saveChildTapped() {
+        if inputNameView.textField.text?.isEmpty == true {
+            ErrorPresenter.showError(message: R.String.enterName, on: self)
+            return
+        }
+        
+        if inputAgeView.textField.text?.isEmpty == true {
+            ErrorPresenter.showError(message: R.String.enterAge, on: self)
+            return
+        }
+        
         callBack(dummyChild)
         dismissVC()
     }
@@ -132,11 +141,6 @@ final class AddChildViewController: UIViewController {
         default:
             break
         }
-    }
-    
-    
-    deinit {
-        print("deinit AddChildViewController")
     }
 }
 

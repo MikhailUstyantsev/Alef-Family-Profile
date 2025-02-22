@@ -18,7 +18,6 @@ final class ParentInfoView: UIView {
     private let ageView = TitleValueView()
     private let stackView: UIStackView = {
         let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = 10
         stack.distribution = .fillEqually

@@ -33,6 +33,9 @@ enum R {
         static let enterName = "Введите имя"
         static let enterAge = "Введите возраст"
         static let save = "Сохранить"
+        static let clearScreen = "Очистить экран?"
+        static let resetData = "Сбросить данные"
+        static let cancel = "Отмена"
     }
     
     

@@ -8,8 +8,27 @@
 import UIKit
 import Combine
 
+protocol FamilyProfileViewHeaderDelegate {
+    func hideAddChildButton(_ childrenCount: Int)
+}
+
+
+protocol FamilyProfileViewFooterDelegate {
+    func hideDeleteAllChildrenButton(_ childrenCount: Int)
+}
+
+
+
 final class FamilyProfileViewController: UIViewController {
     
+    var familyProfileHeaderDelegate: FamilyProfileViewHeaderDelegate?
+    var familyProfileFooterDelegate: FamilyProfileViewFooterDelegate?
+    private lazy var childrenCount = 0 {
+        didSet {
+            familyProfileHeaderDelegate?.hideAddChildButton(childrenCount)
+            familyProfileFooterDelegate?.hideDeleteAllChildrenButton(childrenCount)
+        }
+    }
     enum Section {
         case main
     }
@@ -23,7 +42,6 @@ final class FamilyProfileViewController: UIViewController {
     private let tableView = UITableView()
     private lazy var tableViewDataSource = makeDataSource()
     private var cancellables = Set<AnyCancellable>()
-    
     
     
     init(viewModel: FamilyProfileViewModel) {
@@ -70,13 +88,16 @@ final class FamilyProfileViewController: UIViewController {
     private func configureTableView() {
         tableView.register(ChildInfoTableViewCell.self, forCellReuseIdentifier: String(describing: ChildInfoTableViewCell.self))
         tableView.register(TableHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: TableHeaderView.self))
+        tableView.register(TableFooterView.self, forHeaderFooterViewReuseIdentifier: String(describing: TableFooterView.self))
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.sectionHeaderTopPadding = 0
         tableView.sectionHeaderHeight = 60
+        tableView.sectionFooterHeight = 60
         tableView.rowHeight = 170
         tableView.delegate = self
         tableView.backgroundColor = .clear
+        tableView.showsVerticalScrollIndicator = false
         
         view.addSubviews(tableView)
         NSLayoutConstraint.activate([
@@ -86,8 +107,7 @@ final class FamilyProfileViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
-    
+
     
     private func configureViewController() {
         view.backgroundColor = .systemBackground
@@ -102,6 +122,7 @@ final class FamilyProfileViewController: UIViewController {
         familyProfileViewModel.childrenPublisher
             .sink { [weak self] children in
                 guard let self else { return }
+                childrenCount = children.count
                 self.applySnapshot(with: children)
             }
             .store(in: &cancellables)
@@ -142,20 +163,24 @@ final class FamilyProfileViewController: UIViewController {
 
 
 extension FamilyProfileViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let item = tableViewDataSource.itemIdentifier(for: indexPath) else { return }
-    }
-    
-    
+  
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: TableHeaderView.self)) as? TableHeaderView else {
             return UIView()
         }
         header.delegate = self
+        self.familyProfileHeaderDelegate = header
         return header
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: TableFooterView.self)) as? TableFooterView else {
+            return UIView()
+        }
+        
+        self.familyProfileFooterDelegate = footer
+        return footer
+    }
 }
 
 
@@ -195,8 +220,8 @@ extension FamilyProfileViewController: ChildInfoTableViewCellDelegate {
         guard let child else { return }
         do {
             try familyProfileViewModel.deleteChildFromStorage(child: child)
-        } catch let error as NSError {
-            ErrorPresenter.showError(message: error.localizedDescription, on: self)
+        } catch {
+            ErrorPresenter.showError(message: StorageError.deletingError.rawValue, on: self)
         }
     }
     

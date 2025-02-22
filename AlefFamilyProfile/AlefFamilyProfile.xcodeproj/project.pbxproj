@@ -15,6 +15,7 @@
 		83571FD72D67BC7D00F08BAE /* Child+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FD32D67BC7D00F08BAE /* Child+CoreDataProperties.swift */; };
 		83571FD82D67BC7D00F08BAE /* Parent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FD42D67BC7D00F08BAE /* Parent+CoreDataClass.swift */; };
 		83571FD92D67BC7D00F08BAE /* Parent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FD52D67BC7D00F08BAE /* Parent+CoreDataProperties.swift */; };
+		83571FDB2D69712100F08BAE /* TableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83571FDA2D69712100F08BAE /* TableFooterView.swift */; };
 		83CC70B82D6627490013F29C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70B02D6627490013F29C /* AppDelegate.swift */; };
 		83CC70B92D6627490013F29C /* FamilyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70B22D6627490013F29C /* FamilyProfileViewController.swift */; };
 		83CC70BA2D6627490013F29C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC70B62D6627490013F29C /* SceneDelegate.swift */; };
@@ -64,6 +65,7 @@
 		83571FD32D67BC7D00F08BAE /* Child+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Child+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		83571FD42D67BC7D00F08BAE /* Parent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		83571FD52D67BC7D00F08BAE /* Parent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		83571FDA2D69712100F08BAE /* TableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFooterView.swift; sourceTree = "<group>"; };
 		83CC70982D6605450013F29C /* AlefFamilyProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlefFamilyProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CC70B02D6627490013F29C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83CC70B12D6627490013F29C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			children = (
 				83CC710B2D66447B0013F29C /* ParentInfoView.swift */,
 				83CC711C2D6670CD0013F29C /* TableHeaderView.swift */,
+				83571FDA2D69712100F08BAE /* TableFooterView.swift */,
 				83CC71152D66642A0013F29C /* Cells */,
 			);
 			path = Views;
@@ -463,6 +466,7 @@
 				83CC70CF2D6631EB0013F29C /* StorageManager.swift in Sources */,
 				83CC70D42D6632990013F29C /* StorageError.swift in Sources */,
 				83CC71172D6664730013F29C /* ChildInfoTableViewCell.swift in Sources */,
+				83571FDB2D69712100F08BAE /* TableFooterView.swift in Sources */,
 				83CC70D22D6632590013F29C /* ErrorPresenter.swift in Sources */,
 				83CC70B82D6627490013F29C /* AppDelegate.swift in Sources */,
 				83571FBF2D67842700F08BAE /* AddChildViewController.swift in Sources */,

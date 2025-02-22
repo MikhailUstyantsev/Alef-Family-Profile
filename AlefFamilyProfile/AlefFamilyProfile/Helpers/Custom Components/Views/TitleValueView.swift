@@ -50,6 +50,6 @@ final class TitleValueView: UIView {
     //MARK: Public functions
     func set(_ titleText: String, with value: String) {
         titleLabel.text = titleText
-        valueLabel.text = value
+        valueLabel.text = value.capitalized
     }
 }

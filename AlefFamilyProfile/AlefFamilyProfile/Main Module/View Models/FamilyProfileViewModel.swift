@@ -11,12 +11,12 @@ import Combine
 final class FamilyProfileViewModel: NSObject {
     
     let storageManager = StorageManager.shared
-    var childrenPublisher = CurrentValueSubject<[Child], Never>([])
+    var childrenPublisher = PassthroughSubject<[Child], Never>()
     
     func loadChildrenFromStorage() {
         do {
             let children = try storageManager.retrieveAllChildren()
-            childrenPublisher.value = children
+            childrenPublisher.send(children)
         } catch {
             //Показать алерт в контроллере
         }
@@ -26,7 +26,7 @@ final class FamilyProfileViewModel: NSObject {
         do {
             try storageManager.deleteChild(child)
             loadChildrenFromStorage()
-        } catch {
+        } catch let error as StorageError {
             throw error
         }
     }

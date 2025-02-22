@@ -15,7 +15,6 @@ protocol TableHeaderViewDelegate {
 final class TableHeaderView: UITableViewHeaderFooterView {
     
     var delegate: TableHeaderViewDelegate?
-    var isTableDataSourceFull: Bool = false
     
     let label = FPTitleLabel(textAlignment: .left, fontSize: 18, textColor: R.Color.black)
     let addChildButton = FPButton(color: R.Color.bluish ?? .blue, title: R.String.addChild, systemImageName: "plus")
@@ -65,5 +64,20 @@ final class TableHeaderView: UITableViewHeaderFooterView {
     
     @objc func addChildTapped() {
         delegate?.didTapAddChildButton()
+    }
+}
+
+
+extension TableHeaderView: FamilyProfileViewHeaderDelegate {
+    func hideAddChildButton(_ childrenCount: Int) {
+        if childrenCount >= 5 {
+            UIView.animate(withDuration: 0.3) {
+                self.addChildButton.isHidden = true
+            }
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                self.addChildButton.isHidden = false
+            }
+        }
     }
 }
